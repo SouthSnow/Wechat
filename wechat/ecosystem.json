@@ -7,8 +7,8 @@
 
     // First application
     {
-      name      : "API",
-      script    : "app.js",
+      name      : "Wechat",
+      script    : "./bin/www",
       env: {
         COMMON_VARIABLE: "true"
       },
@@ -20,7 +20,7 @@
     // Second application
     {
       name      : "WEB",
-      script    : "web.js"
+      script    : "./bin/www"
     }
   ],
 
@@ -34,7 +34,7 @@
       host : "45.124.66.158",
       ref  : "origin/master",
       repo : "https://SouthSnow@github.com/SouthSnow/Wechat.git",
-      path : "/var/www/production",
+      path : "/home/pflnh/www/production",
       "post-deploy" : "npm install && pm2 startOrRestart ecosystem.json --env production"
     },
     dev : {
@@ -42,7 +42,7 @@
       host : "45.124.66.158",
       ref  : "origin/master",
       repo : "https://SouthSnow@github.com/SouthSnow/Wechat.git",
-      path : "/var/www/development",
+      path : "/home/pflnh/www/development",
       "post-deploy" : "npm install && pm2 startOrRestart ecosystem.json --env dev",
       env  : {
         NODE_ENV: "dev"
