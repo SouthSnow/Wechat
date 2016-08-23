@@ -7,7 +7,7 @@
 
     // First application
     {
-      name      : "pflnh",
+      name      : "API",
       script    : "app.js",
       env: {
         COMMON_VARIABLE: "true"
@@ -33,15 +33,15 @@
       user : "pflnh",
       host : "45.124.66.158",
       ref  : "origin/master",
-      repo : "git@github.com:repo.git",
+      repo : "https://SouthSnow@github.com/SouthSnow/Wechat.git",
       path : "/var/www/production",
       "post-deploy" : "npm install && pm2 startOrRestart ecosystem.json --env production"
     },
     dev : {
       user : "pflnh",
-      host : "45.124.66.158",
+      host : "45.124.6.158",
       ref  : "origin/master",
-      repo : "git@github.com:repo.git",
+      repo : "https://SouthSnow@github.com/SouthSnow/Wechat.git",
       path : "/var/www/development",
       "post-deploy" : "npm install && pm2 startOrRestart ecosystem.json --env dev",
       env  : {
