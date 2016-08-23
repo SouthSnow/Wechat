@@ -28,24 +28,26 @@
    * Deployment section
    * http://pm2.keymetrics.io/docs/usage/deployment/
    */
-  deploy : {
-    production : {
-      user : "pflnh",
-      host : "45.124.66.158",
-      ref  : "origin/master",
-      repo : "https://SouthSnow@github.com/SouthSnow/Wechat.git",
-      path : "/home/pflnh/www/production",
+  "deploy" : {
+    "production" : {
+      "user" : "pflnh",
+      "host" : "45.124.66.158",
+      "ref"  : "origin/master",
+      "repo" : "https://SouthSnow@github.com/SouthSnow/Wechat.git",
+            "ssh_options": "StrictHostKeyChecking=no",
+
+      "path" : "/home/pflnh/www/production",
       "post-deploy" : "npm install && pm2 startOrRestart ecosystem.json --env production"
     },
-    dev : {
-      user : "pflnh",
-      host : "45.124.66.158",
-      ref  : "origin/master",
-      repo : "https://SouthSnow@github.com/SouthSnow/Wechat.git",
-      path : "/home/pflnh/www/development",
+    "dev" : {
+      "user" : "pflnh",
+      "host" : "45.124.66.158",
+      "ref"  : "origin/master",
+      "repo" : "https://SouthSnow@github.com/SouthSnow/Wechat.git",
+      "path" : "/home/pflnh/www/development",
       "post-deploy" : "npm install && pm2 startOrRestart ecosystem.json --env dev",
-      env  : {
-        NODE_ENV: "dev"
+      "env"  : {
+        "NODE_ENV": "dev"
       }
     }
   }
