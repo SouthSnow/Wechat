@@ -32,8 +32,9 @@
     "production" : {
       "user" : "pflnh",
       "host" : "45.124.66.158",
+      "ports" : "3000",
       "ref"  : "origin/master",
-      "repo" : "ssh://SouthSnow@github.com/SouthSnow/Wechat.git",
+      "repo" : "ssh://git@github.com:SouthSnow/Wechat.git",
       "ssh_options" : "StrictHostKeyChecking=no",
 
       "path" : "/home/pflnh/www/production",
