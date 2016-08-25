@@ -8,7 +8,7 @@
     // First application
     {
       "name"      : "Wechat",
-      "script"    : ".binwww/bin/www",
+      "script"    : "./bin/www",
       "env": {
         "COMMON_VARIABLE": "true"
       },
