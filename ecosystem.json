@@ -18,10 +18,10 @@
     },
 
     // Second application
-    {
-      "name"      : "WEB",
-      "script"    : "./bin/www"
-    }
+    // {
+    //   "name"      : "WEB",
+    //   "script"    : "./bin/www"
+    // }
   ],
 
   /**
