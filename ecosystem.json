@@ -18,10 +18,10 @@
     },
 
     // Second application
-    {
-      "name"      : "WEB",
-      "script"    : "./bin/www"
-    }
+    // {
+    //   "name"      : "WEB",
+    //   "script"    : "./bin/www"
+    // }
   ],
 
   /**
@@ -32,9 +32,9 @@
     "production" : {
       "user" : "pflnh",
       "host" : "45.124.66.158",
-      "ports" : "3000",
+      "ports" : "8000",
       "ref"  : "origin/master",
-      "repo" : "ssh://git@github.com/SouthSnow/Wechat.git",
+      "repo" : "https://github.com/SouthSnow/Wechat.git",
       "ssh_options" : "StrictHostKeyChecking=no",
       "path" : "/home/pflnh/www/production",
       "post-deploy" : "npm install && pm2 startOrRestart ecosystem.json --env production"
@@ -43,7 +43,7 @@
       "user" : "pflnh",
       "host" : "45.124.66.158",
       "ref"  : "origin/master",
-      "repo" : "ssh://git@github.com/SouthSnow/Wechat.git",
+      "repo" : "https://github.com/SouthSnow/Wechat.git",
       "path" : "/home/pflnh/www/development",
       "post-deploy" : "npm install && pm2 startOrRestart ecosystem.json --env dev",
       "env"  : {
