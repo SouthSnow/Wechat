@@ -14,8 +14,8 @@ var app = new Koa()
 
 app.use(wechat(config.wechat, weixin.reply))
 
-app.listen(3000)
+app.listen(8080)
 
-console.log("Listen: 3000")
+console.log("Listen: 8080")
 
 
