@@ -32,7 +32,7 @@
     "production" : {
       "user" : "pflnh",
       "host" : "45.124.66.158",
-      "ports" : "8000",
+      "ports" : "3030",
       "ref"  : "origin/master",
       "repo" : "https://github.com/SouthSnow/Wechat.git",
       "ssh_options" : "StrictHostKeyChecking=no",
