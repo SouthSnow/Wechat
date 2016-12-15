@@ -131,7 +131,7 @@ Wechat.prototype.reply = function() {
 
 	this.status = 200
 	this.type = 'application/xml'
-	this.response = xml
+	this.body = xml
 }
 
 
