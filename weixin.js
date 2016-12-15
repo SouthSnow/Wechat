@@ -62,8 +62,6 @@ exports.reply = function *(next) {
 				mediaId: data.media_id
 			}
 		}
-
-
 		this.body = reply
 	}
 
