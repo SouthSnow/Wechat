@@ -8,6 +8,9 @@ exports.reply = function *(next) {
 
 	console.log('您上报的地理位置是:')
 	this.body = "您上报的地理位置是: " + message.Latitude + '/' + message.Longitude + '_' + message.Precision
+	
+	var msgType = message.MsgType || 'text';
+
 	if (message.MsgType === 'event') {
 
 			console.log('事件名称:' + message.Event)
@@ -63,6 +66,62 @@ exports.reply = function *(next) {
 			}
 		}
 		this.body = reply
+	}
+	else if (msgType === 'image') {
+		this.body = {
+			mediaId: message.MediaId
+		};
+	}
+	else if (msgType === 'music') {
+		this.body = {
+			mediaId: message.MediaId,
+			musicUrl: 'http://sanwenzx.com/uploads/allimg/100828/09442S544-0.jpg',
+			title: "技术改变世界1",
+			description: '只是个描述',
+			hqMusicUrl: 'http://sanwenzx.com/uploads/allimg/100828/09442S544-0.jpg',
+			thumbMediaId: 'http: www.baidu.com/'
+		};
+	}
+	else if (msgType === 'video') {
+		this.body = {
+			mediaId: message.MediaId,
+			title: message.Title,
+			description: message.Description
+		};
+	}
+	else if (msgType === 'news') {
+		
+		this.body = [
+			{
+				title: "技术改变世界1",
+				description: '只是个描述',
+				picUrl: 'http://sanwenzx.com/uploads/allimg/100828/09442S544-0.jpg',
+				url: 'http: www.baidu.com/'
+			},
+			{
+				title: "技术改变世界2",
+				description: '只是个描述',
+				picUrl: 'http://sanwenzx.com/uploads/allimg/100828/09442S544-0.jpg',
+				url: 'http: www.baidu.com/'
+			},
+			{
+				title: "技术改变世界3",
+				description: '只是个描述',
+				picUrl: 'http://sanwenzx.com/uploads/allimg/100828/09442S544-0.jpg',
+				url: 'http: www.baidu.com/'
+			},{
+				title: "技术改变世界4",
+				description: '只是个描述',
+				picUrl: 'http://sanwenzx.com/uploads/allimg/100828/09442S544-0.jpg',
+				url: 'http: www.baidu.com/'
+			},{
+				title: "技术改变世界5",
+				description: '只是个描述',
+				picUrl: 'http://sanwenzx.com/uploads/allimg/100828/09442S544-0.jpg',
+				url: 'http: www.baidu.com/'
+			}
+		]
+
 	}
 
 
