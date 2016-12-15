@@ -48,8 +48,8 @@ exports.formatMessage = formatMessage
 exports.tpl = function (content, message) {
 	var info = {}
 	var type = 'text'
-	var fromUserName = message.FromUserName
-	var toUserName = message.toUserName
+	var fromUserName = message.FromUserName || "pfl"
+	var toUserName = message.toUserName || "fpl"
 
 	if (Array.isArray(content)) {
 		type = 'news'
