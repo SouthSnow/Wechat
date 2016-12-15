@@ -7,7 +7,7 @@ var util = require('./util')
 module.exports = function(opts, handler) {
   var wechat = new Wechat(opts)
   return function *(next) {
-    console.log(this.method)
+    console.log('method: ', this.method)
     var token = opts.token
     var signature = this.query.signature
     var nonce = this.query.nonce
@@ -34,9 +34,9 @@ module.exports = function(opts, handler) {
         encoding: this.charset
       })
       var content = yield util.parseXMLAsync(data)
-      console.log(content)
+      console.log('content: ',content);
       var message = util.formatMessage(content.xml)
-      console.log(message)
+      console.log('message: ', message)
       this.weixin = message
       yield handler.call(this, next)
       wechat.reply.call(this)

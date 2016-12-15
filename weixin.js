@@ -6,7 +6,7 @@ var wechatApi = new Wechat(config.wechat)
 exports.reply = function *(next) {
 	var message = this.weixin
 
-	// console.log('您上报的地理位置是:')
+	console.log('您上报的地理位置是:')
 	this.body = "您上报的地理位置是: " + message.Latitude + '/' + message.Longitude + '_' + message.Precision
 	if (message.MsgType === 'event') {
 

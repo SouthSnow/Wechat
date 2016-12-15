@@ -117,7 +117,7 @@ Wechat.prototype.uploadMaterial = function (type,filepath) {
 			.catch(function (e) {
 				reject(e)
 			})
-			})	
+		})	
 	})
 }
 
