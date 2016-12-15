@@ -60,6 +60,7 @@ exports.reply = function *(next) {
 		}
 		else if (content === '5') {
 			var data = yield wechatApi.uploadMaterial('image', __dirname + '/11.jpg')
+			console.log('data: ', JSON.stringify(data));
 			reply = {
 				type: 'image',
 				mediaId: data.media_id
@@ -84,12 +85,14 @@ exports.reply = function *(next) {
 					description: '只是个描述',
 					picUrl: 'http://sanwenzx.com/uploads/allimg/100828/09442S544-0.jpg',
 					url: 'http: www.baidu.com/'
-				},{
+				},
+				{
 					title: "技术改变世界4",
 					description: '只是个描述',
 					picUrl: 'http://sanwenzx.com/uploads/allimg/100828/09442S544-0.jpg',
 					url: 'http: www.baidu.com/'
-				},{
+				},
+				{
 					title: "技术改变世界5",
 					description: '只是个描述',
 					picUrl: 'http://sanwenzx.com/uploads/allimg/100828/09442S544-0.jpg',

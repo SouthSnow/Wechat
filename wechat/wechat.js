@@ -101,22 +101,21 @@ Wechat.prototype.uploadMaterial = function (type,filepath) {
 	var appSecret = this.appSecret
 
 	return new Promise(function (resolve, reject) {
-
 		that.fetchAccessToke()
-			.then(function (data) {
-				var url = api.upload + 'access_token=' + data.access_token + '&type=' + type
-				request({method: 'POST', url: url, formData: form, json: true}).then(function (response) {
-					var _data = response.body
-					if (_data) {
-						resolve(_data)
-					}
-					else {
-						throw new Error('upload material fail')
-					}
-				})
-			.catch(function (e) {
-				reject(e)
+		.then(function (data) {
+			var url = api.upload + 'access_token=' + data.access_token + '&type=' + type
+			request({method: 'POST', url: url, formData: form, json: true}).then(function (response) {
+				var _data = response.body
+				if (_data) {
+					resolve(_data)
+				}
+				else {
+					throw new Error('upload material fail')
+				}
 			})
+		.catch(function (e) {
+			reject(e)
+		})
 		})	
 	})
 }
