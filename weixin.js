@@ -72,31 +72,31 @@ exports.reply = function *(next) {
 					title: "技术改变世界1",
 					description: '只是个描述',
 					picUrl: 'http://sanwenzx.com/uploads/allimg/100828/09442S544-0.jpg',
-					url: 'http: www.baidu.com/'
+					url: 'https://www.baidu.com/'
 				},
 				{
 					title: "技术改变世界2",
 					description: '只是个描述',
 					picUrl: 'http://sanwenzx.com/uploads/allimg/100828/09442S544-0.jpg',
-					url: 'http: www.baidu.com/'
+					url: 'https://www.baidu.com/'
 				},
 				{
 					title: "技术改变世界3",
 					description: '只是个描述',
 					picUrl: 'http://sanwenzx.com/uploads/allimg/100828/09442S544-0.jpg',
-					url: 'http: www.baidu.com/'
+					url: 'https://www.baidu.com/'
 				},
 				{
 					title: "技术改变世界4",
 					description: '只是个描述',
 					picUrl: 'http://sanwenzx.com/uploads/allimg/100828/09442S544-0.jpg',
-					url: 'http: www.baidu.com/'
+					url: 'https://www.baidu.com/'
 				},
 				{
 					title: "技术改变世界5",
 					description: '只是个描述',
 					picUrl: 'http://sanwenzx.com/uploads/allimg/100828/09442S544-0.jpg',
-					url: 'http: www.baidu.com/'
+					url: 'http://www.baidu.com/'
 				}
 			]	
 		}
