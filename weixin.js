@@ -66,7 +66,7 @@ exports.reply = function *(next) {
 			}
 		}
 		else if (content === '6') {
-			this.body = [
+			type = [
 				{
 					title: "技术改变世界1",
 					description: '只是个描述',
