@@ -36,9 +36,9 @@ var tpl2 = heredoc(function () {/*
 
 var tpl = heredoc(function () {/*
     <xml>
-    <ToUserName><![CDATA[<%= toUserName %>]]></ToUserName>
-    <FromUserName><![CDATA[<%= fromUserName %>]]></FromUserName>
-    <CreateTime><%= createTime %></CreateTime>
+        <ToUserName><![CDATA[<%= toUserName %>]]></ToUserName>
+        <FromUserName><![CDATA[<%= fromUserName %>]]></FromUserName>
+        <CreateTime><%= createTime %></CreateTime>
     <MsgType><![CDATA[<%= msgType %>]]></MsgType>
     <% if (msgType === 'text'){ %>
 		<Content><![CDATA[<%= content %>]]></Content>
