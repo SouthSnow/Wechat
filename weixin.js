@@ -85,8 +85,8 @@ exports.reply = function *(next) {
 	else if (msgType === 'video') {
 		this.body = {
 			mediaId: message.MediaId,
-			title: message.Title,
-			description: message.Description
+			title: '这是一段小视频',
+			description: "这是一段小视频啊"
 		};
 	}
 	else if (msgType === 'news') {
