@@ -3,24 +3,14 @@
 var ejs = require('ejs')
 var heredoc = require('heredoc')
 
-var tpl2 = heredoc(function () {/*
-<xml>
-<ToUserName>pfl</ToUserName>
-<FromUserName>pflnh</FromUserName>
-<CreateTime>12345678</CreateTime>
-<MsgType>text</MsgType>
-<Content>hao</Content>
-</xml>
-*/})
-
 var tpl = heredoc(function () {/*
     <xml>
-        <ToUserName><![CDATA[<%= toUserName %>]]></ToUserName>
-        <FromUserName><![CDATA[<%= fromUserName %>]]></FromUserName>
-        <CreateTime><%= createTime %></CreateTime>
+    <ToUserName><![CDATA[<%= fromUserName  %>]]></ToUserName>
+    <FromUserName><![CDATA[<%= toUserName %>]]></FromUserName>
+    <CreateTime><%= createTime %></CreateTime>
     <MsgType><![CDATA[<%= msgType %>]]></MsgType>
     <% if (msgType === 'text'){ %>
-		<Content><![CDATA[<%= content %>]]></Content>
+	<Content><![CDATA[<%= content %>]]></Content>
     <% }else if(msgType === 'image'){ %>
     <Image>
         <MediaId><![CDATA[<%= content.mediaId %>]]></MediaId>
@@ -60,7 +50,7 @@ var tpl = heredoc(function () {/*
 */})
 
 
-var compiled = ejs.compile(tpl2)
+var compiled = ejs.compile(tpl)
 
 exports =  module.exports = {
 	compiled: compiled

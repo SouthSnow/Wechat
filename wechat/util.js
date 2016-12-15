@@ -48,21 +48,21 @@ exports.formatMessage = formatMessage
 exports.tpl = function (content, message) {
 	var info = {}
 	var type = 'text'
-	var fromUserName = message.FromUserName || "pfl"
-	var toUserName = message.toUserName || "fpl"
+	var fromUserName = message.FromUserName
+	var toUserName = message.ToUserName
 
 	if (Array.isArray(content)) {
 		type = 'news'
 	}
 
-	type = message.type || type
+	type = message.MsgType || type
 	info.content = content
 	info.createTime = new Date().getTime()
 	info.msgType = type
 	info.fromUserName = fromUserName
 	info.toUserName = toUserName
-	info.mediaId = message.mediaId
-	info.msgId = message.msgId
+	info.mediaId = message.MediaId
+	info.msgId = message.MsgId
 
 	return tpl.compiled(info) 
 
