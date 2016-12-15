@@ -5,11 +5,11 @@ var heredoc = require('heredoc')
 
 var tpl2 = heredoc(function () {/*
 <xml>
-<ToUserName><![CDATA[<%= toUserName %>]]></ToUserName>
-<FromUserName><![CDATA[<%= fromUserName %>]]></FromUserName>
+<ToUserName>pfl</ToUserName>
+<FromUserName>pflnh</FromUserName>
 <CreateTime>12345678</CreateTime>
-<MsgType><![CDATA[text]]></MsgType>
-<Content><![CDATA[<%= content %>]]></Content>
+<MsgType>text</MsgType>
+<Content>hao</Content>
 </xml>
 */})
 
