@@ -47,7 +47,7 @@ exports.formatMessage = formatMessage
 
 exports.tpl = function (content, message) {
 	var info = {}
-	var type = 'text'
+	var type = message.MsgType || 'text'
 	var fromUserName = message.FromUserName
 	var toUserName = message.ToUserName
 
@@ -55,7 +55,6 @@ exports.tpl = function (content, message) {
 		type = 'news'
 	}
 
-	type = message.MsgType || type
 	info.content = content	
 	info.createTime = new Date().getTime()
 	info.msgType = type
