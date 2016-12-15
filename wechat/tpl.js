@@ -4,34 +4,13 @@ var ejs = require('ejs')
 var heredoc = require('heredoc')
 
 var tpl2 = heredoc(function () {/*
-	<xml>
-	<ToUserName><![CDATA[<%= fromUserName %>]]></ToUserName>
-	<FromUserName><![CDATA[<%= toUserName %>]]></FromUserName>
-	<CreateTime><![CDATA[<%= createTime %>]]></CreateTime>
-	<MsgType><![CDATA[<%= msgType %>]]></MsgType>
-	<MediaId><![CDATA[<%= mediaId %>]]></MediaId>
-	<MsgId><![CDATA[<%= msgId %>]]></MsgId>
-	<% if (msgType === 'text') { %>
-		<Content><![CDATA[<%= content %>]]></Content>
-	<% } else if (msgType === 'image') { %> 
-		<PicUrl><![CDATA[<%= content.picUrl %>]]></PicUrl>
-	<% } else if (msgType === 'voice') { %>	
-		<Format><![CDATA[<%= content.format %>]]></Format>	
-	<% } else if (msgType === 'video') { %>	
-		<ThumbMediaId><![CDATA[<%= content.thumbMediaId %>]]></ThumbMediaId>
-	<% } else if (msgType === 'shortvideo') { %>	
-		<ThumbMediaId><![CDATA[<%= content.thumbMediaId %>]]></ThumbMediaId>
-	<% } else if (msgType === 'location') { %>	
-		<Location_X><![CDATA[<%= content.location_x %>]]></Location_X>
-		<Location_Y><![CDATA[<%= content.location_y %>]]></Location_Y>
-		<Scale><![CDATA[<%= content.scale %>]]></Scale>
-		<Label><![CDATA[<%= content.label %>]]></Label>
-	<% } else if (msgType === 'link') { %>	
-		<Title><![CDATA[<%= content.title %>]]></Title>
-		<Description><![CDATA[<%= content.description %>]]></Description>
-		<Url><![CDATA[<%= content.url %>]]></Url>
-	 <% } %> 
-	</xml>	
+<xml>
+<ToUserName><![CDATA[<%= toUserName %>]]></ToUserName>
+<FromUserName><![CDATA[<%= fromUserName %>]]></FromUserName>
+<CreateTime>12345678</CreateTime>
+<MsgType><![CDATA[text]]></MsgType>
+<Content><![CDATA[<%= content %>]]></Content>
+</xml>
 */})
 
 var tpl = heredoc(function () {/*
@@ -81,7 +60,7 @@ var tpl = heredoc(function () {/*
 */})
 
 
-var compiled = ejs.compile(tpl)
+var compiled = ejs.compile(tpl2)
 
 exports =  module.exports = {
 	compiled: compiled
