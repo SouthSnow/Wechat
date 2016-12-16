@@ -77,7 +77,7 @@ exports.reply = function *(next) {
 						url: nw.url || 'https://www.baidu.com/'
 					})
 				});
-				this.body = reply.length > 0 ? reply : [{
+				reply.length > 0 ? reply : [{
 					title: "技术改变世界1",
 					description: '只是个描述',
 					picUrl: 'http://sanwenzx.com/uploads/allimg/100828/09442S544-0.jpg',
@@ -85,6 +85,7 @@ exports.reply = function *(next) {
 				}]
 			})	
 		}
+		this.body = reply
 	}
 	else if (msgType === 'image') {
 		this.body = {
