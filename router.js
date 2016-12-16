@@ -8,6 +8,7 @@ Router.get('file', '/files:/id',function *(next) {
 	if (this.params.id) {
 		qiniuUpload(this.params.id);
 	}
+	console.log('params: ', JSON.stringify(this.params));
 })
 
 exports = module.exports = Router;
