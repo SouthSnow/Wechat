@@ -1,5 +1,7 @@
 'use strict'
 
+
+var menu = require('../menu/menu');
 var Promise = require('bluebird')
 var request = Promise.promisify(require('request'))
 var util = require('./util')
@@ -18,6 +20,9 @@ function Wechat(opts) {
 	this.saveAccessToken = opts.saveAccessToken
 
 	this.fetchAccessToke()
+	.then(function (data) {
+		menu.createMenu(data.access_token);
+	});
 }
 
 
@@ -120,6 +125,7 @@ Wechat.prototype.uploadMaterial = function (type,filepath) {
 		})	
 	})
 }
+
 
 Wechat.prototype.reply = function() {
 	var content = this.body
