@@ -2,6 +2,7 @@
 var config = require('./config')
 var Wechat = require('./wechat/wechat')
 var wechatApi = new Wechat(config.wechat)
+var News = require('../common/mongoose').News;
 
 exports.reply = function *(next) {
 	var message = this.weixin
@@ -51,12 +52,12 @@ exports.reply = function *(next) {
 			reply = "天下第一吃仙丹"
 		}
 		else if (content === '4') {
-			reply = {
+			reply = [{
 				title: "技术改变世界",
 				description: '只是个描述',
 				picUrl: 'http://sanwenzx.com/uploads/allimg/100828/09442S544-0.jpg',
-				url: 'http: www.baidu.com/'
-			}
+				url: 'https://www.baidu.com/'
+			}]
 		}
 		else if (content === '5') {
 			var data = yield wechatApi.uploadMaterial('image', __dirname + '/11.jpg')
@@ -67,40 +68,26 @@ exports.reply = function *(next) {
 			}
 		}
 		else if (content === '6') {
-			reply = [
-				{
-					title: "技术改变世界1",
-					description: '只是个描述',
-					picUrl: 'http://sanwenzx.com/uploads/allimg/100828/09442S544-0.jpg',
-					url: 'https://www.baidu.com/'
-				},
-				{
-					title: "技术改变世界2",
-					description: '只是个描述',
-					picUrl: 'http://sanwenzx.com/uploads/allimg/100828/09442S544-0.jpg',
-					url: 'https://www.baidu.com/'
-				},
-				{
-					title: "技术改变世界3",
-					description: '只是个描述',
-					picUrl: 'http://sanwenzx.com/uploads/allimg/100828/09442S544-0.jpg',
-					url: 'https://www.baidu.com/'
-				},
-				{
-					title: "技术改变世界4",
-					description: '只是个描述',
-					picUrl: 'http://sanwenzx.com/uploads/allimg/100828/09442S544-0.jpg',
-					url: 'https://www.baidu.com/'
-				},
-				{
-					title: "技术改变世界5",
-					description: '只是个描述',
-					picUrl: 'http://sanwenzx.com/uploads/allimg/100828/09442S544-0.jpg',
-					url: 'http://www.baidu.com/'
-				}
-			]	
+			reply = []
+			News.find({}, function (news) {
+				news.forEach( function(nw, index) {
+					reply.push({
+						title: nw.title || '只是个传说',
+						description: nw.description ||'只是个描述',
+						picUrl:  nw.picUrl||'http://sanwenzx.com/uploads/allimg/100828/09442S544-0.jpg',
+						url: nw.url || 'https://www.baidu.com/'
+					})
+				});
+				this.body = reply.length > 0 ? reply : [{
+				title: "技术改变世界1",
+				description: '只是个描述',
+				picUrl: 'http://sanwenzx.com/uploads/allimg/100828/09442S544-0.jpg',
+				url: 'http: www.baidu.com/'
+			}]
+				yield next
+				return
+			})	
 		}
-		this.body = reply
 	}
 	else if (msgType === 'image') {
 		this.body = {
