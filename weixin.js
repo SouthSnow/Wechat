@@ -1,8 +1,7 @@
-'use strict'
 var config = require('./config')
 var Wechat = require('./wechat/wechat')
 var wechatApi = new Wechat(config.wechat)
-var News = require('../common/mongoose').News;
+var News = require('./common/mongoose').News;
 
 exports.reply = function *(next) {
 	var message = this.weixin
@@ -79,13 +78,11 @@ exports.reply = function *(next) {
 					})
 				});
 				this.body = reply.length > 0 ? reply : [{
-				title: "技术改变世界1",
-				description: '只是个描述',
-				picUrl: 'http://sanwenzx.com/uploads/allimg/100828/09442S544-0.jpg',
-				url: 'http: www.baidu.com/'
-			}]
-				yield next
-				return
+					title: "技术改变世界1",
+					description: '只是个描述',
+					picUrl: 'http://sanwenzx.com/uploads/allimg/100828/09442S544-0.jpg',
+					url: 'http: www.baidu.com/'
+				}]
 			})	
 		}
 	}

@@ -58,7 +58,6 @@ var menu = {
 		{
 			name: '关于我',
 			type: 'view',
-			name: 'code必杀技',
 			url: 'https://www.baidu.com'
 		}
 	]
