@@ -7,6 +7,8 @@ var util = require('./util')
 module.exports = function(opts, handler) {
   var wechat = new Wechat(opts)
   return function *(next) {
+    // console.log('params: ', JSON.stringify(this));
+
     console.log('method: ', this.method)
     var token = opts.token
     var signature = this.query.signature

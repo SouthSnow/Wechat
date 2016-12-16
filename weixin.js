@@ -69,7 +69,7 @@ exports.reply = function *(next) {
 		else if (content === '6') {
 			reply = []
 			News.find({}, function (news) {
-				news.forEach( function(nw, index) {
+				news && news.forEach( function(nw, index) {
 					reply.push({
 						title: nw.title || '只是个传说',
 						description: nw.description ||'只是个描述',
@@ -77,13 +77,13 @@ exports.reply = function *(next) {
 						url: nw.url || 'https://www.baidu.com/'
 					})
 				});
-				reply.length > 0 ? reply : [{
+			})	
+			reply.length > 0 ? reply : [{
 					title: "技术改变世界1",
 					description: '只是个描述',
 					picUrl: 'http://sanwenzx.com/uploads/allimg/100828/09442S544-0.jpg',
 					url: 'http: www.baidu.com/'
 				}]
-			})	
 		}
 		this.body = reply
 	}

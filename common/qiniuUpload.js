@@ -1,8 +1,8 @@
-'use strict'
 
 var qiniu = require("qiniu");
-var fs = require('fs')
-var path = require('path')
+var fs = require('fs');
+var path = require('path');
+var sendfile = require('koa-sendfile')
 
 
 //需要填写你的 Access Key 和 Secret Key
@@ -83,18 +83,20 @@ function download(req,res,key) {
 exports.download = download;
 
 
-var _getImage = exports.getImage = function (id) {
-    var id_ = id;
-    var despath = path.resolve(__dirname,('../uploads/' + id_));
-    fs.exists(despath,function (exists) {
-      if (exists) {
-        res.sendFile(despath);
-      }
-      else {
-        res.status(404).send(JSON.stringify({msg:'NOT Find file'}));
-      }
-    })
-    console.log("despath: " + despath)
+var _getImage = exports.getImage = function *(next) {
+    // return function *(next) {
+      // var id_ = id;
+      var despath = path.resolve(__dirname,('../uploads/' + 'default.jpg'));
+
+      fs.exists(despath,function (exists) {
+        if (exists) {
+          console.log("despath: " + despath) 
+        }
+        else {
+          // despath = path.resolve(__dirname,('../uploads/' + id_));
+        }
+      })
+    // }
 }
 
 

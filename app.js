@@ -7,12 +7,18 @@ var util = require('./libs/util')
 var wechat_file = path.join(__dirname, './config/wechat.txt')
 var config = require('./config')
 var weixin = require('./weixin')
-var Router = require('./router')
+var router = require('./router')
 
 var app = new Koa()
-app.use(Router.routes());
-app.use(wechat(config.wechat, weixin.reply))
+app.use(router.routes())
 
+// app.use(wechat(config.wechat, weixin.reply))
+// var sendfile = require('koa-sendfile')
+
+// app.use(function* (next) {
+//   var stats = yield sendfile(this, "/Users/fulipang/Projects/Wechat/uploads/default.jpg")
+//   if (!this.status) this.throw(404)
+// })
 app.listen(3030)
 
 
