@@ -68,7 +68,7 @@ exports.createMenu = function (accessToken) {
 	var url = ' https://api.weixin.qq.com/cgi-bin/menu/create?access_token=' + accessToken;
 	request({method:'POST', url: url, formData: menu, json:true})
 	.then(function (data) {
-		console.log('createMenu data: '. JSON.JSON.stringify(data));
+		console.log('createMenu data: ', JSON.JSON.stringify(data));
 	})
 }
 
