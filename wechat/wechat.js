@@ -21,7 +21,7 @@ function Wechat(opts) {
 
 	this.fetchAccessToke()
 	.then(function (data) {
-		menu.createMenu(data.access_token);
+		// menu.createMenu(data.access_token);
 	});
 }
 
