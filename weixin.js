@@ -61,23 +61,13 @@ exports.reply = function *(next) {
 		else if (content === '5') {
 			var data = yield wechatApi.uploadMaterial('image', __dirname + '/11.jpg')
 			console.log('data: ', JSON.stringify(data));
-			reply = {
+			reply = [{
 				type: 'image',
 				mediaId: data.media_id
-			}
+			}]
 		}
 		else if (content === '6') {
-			reply = []
-			News.find({}, function (news) {
-				news && news.forEach( function(nw, index) {
-					reply.push({
-						title: nw.title || '只是个传说',
-						description: nw.description ||'只是个描述',
-						picUrl:  nw.picUrl||'http://sanwenzx.com/uploads/allimg/100828/09442S544-0.jpg',
-						url: nw.url || 'https://www.baidu.com/'
-					})
-				});
-			})	
+			reply = yield findNews() || []
 			reply.length > 0 ? reply : [{
 					title: "技术改变世界1",
 					description: '只是个描述',
@@ -152,6 +142,30 @@ exports.reply = function *(next) {
 	yield next
 }
 
+
+function *findNews () {
+	return new Promise(function (resolve, reject) {
+		News.find({}, function (error,news) {
+			if (error) {
+			reject(error)
+			 return
+			}
+			var reply = []
+			news && news.forEach( function(nw, index) {
+				reply.push({
+					title: nw.title || '只是个传说',
+					description: nw.description ||'只是个描述',
+					picUrl:  nw.picUrl||'http://sanwenzx.com/uploads/allimg/100828/09442S544-0.jpg',
+					url: nw.url || 'https://www.baidu.com/'
+				})
+			});
+			resolve(reply)
+		})	
+	}).then(function (reply) {
+		return reply
+	})
+
+}
 
 
 
