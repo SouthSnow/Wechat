@@ -83,7 +83,8 @@ function *saveImage(files, news) {
 			resolve(to);
 		})
 	}).then(function (filepath) {
-		news.picUrl = 'https://45.124.66.158:3030/files/' + news._id + ext;
+		news.picUrl = 'http://45.124.66.158:3030/files/' + news._id + ext;
+		news.save();
 					console.log('news: ', JSON.stringify(news));
 		return filepath
 	})
