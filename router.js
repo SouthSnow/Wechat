@@ -76,7 +76,7 @@ function *saveImage(files, news) {
 	var ext = type.split('/')[1] || 'jpg'
   	ext = '.' + ext;
 	return new Promise(function (resolve, reject) {
-	  	if (ext.length > 4) {ext = '.jpg'};
+	  	if (ext.length > 5) {ext = '.jpg'};
 		var to = __dirname + '/uploads/' + news._id + ext
 		fs.rename(from, to, function (error) {
 			if (error) {return reject(error)}
@@ -85,7 +85,7 @@ function *saveImage(files, news) {
 	}).then(function (filepath) {
 		news.picUrl = 'http://45.124.66.158:3030/files/' + news._id + ext;
 		news.save();
-					console.log('news: ', JSON.stringify(news));
+		console.log('news: ', JSON.stringify(news));
 		return filepath
 	})
 	
