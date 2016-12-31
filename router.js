@@ -34,8 +34,8 @@ function *getFilePath(despath) {
 
 // 存储微信图文信息
 Router.post('/api/material/:id',function *(next) {
-	var file = yield parseFile(this.req)
-	var news = yield saveNews(file.fields);
+	var file = yield parseFile(this.req) // 解析
+	var news = yield saveNews(file.fields); // 保存
 	yield saveImage(file.files.files, news);
 	this.body = 'success\n';
 })
